@@ -65,5 +65,10 @@ cd ~/php-source && tar -zxvf php-7.3.31.tar.gz && cd php-7.3.31  && ./configure 
     && cp php.ini-production /usr/local/php73/etc/php.ini \
     && sed -i 's#;extension_dir = "./"#extension_dir = "/usr/local/php73/lib/php/extensions/no-debug-non-zts-20180731"#g' /usr/local/php73/etc/php.ini \
     && sed -i 's#;date.timezone =#date.timezone = PRC #g' /usr/local/php73/etc/php.ini \
-    && echo export PATH=$PATH:/usr/local/php73/bin/:/usr/local/php73/sbin/ >> /etc/profile.d/php.sh \
+    && echo "export PATH=$PATH:/usr/local/php73/bin/:/usr/local/php73/sbin/" >> /etc/profile.d/php.sh \
     && source /etc/profile.d/php.sh 
+
+
+# certbot
+yum install -y certbot && python3-certbot-nginx
+
