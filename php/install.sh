@@ -60,7 +60,7 @@ cd ~/php-source && tar -zxvf php-7.3.31.tar.gz && cd php-7.3.31  && ./configure 
     --with-fpm-group=nginx \
     --without-gdbm \
     --enable-fast-install \
-    --disable-fileinfo \
+    --enable-fileinfo \
     && make && make install \
     && cp php.ini-production /usr/local/php73/etc/php.ini \
     && sed -i 's#;extension_dir = "./"#extension_dir = "/usr/local/php73/lib/php/extensions/no-debug-non-zts-20180731"#g' /usr/local/php73/etc/php.ini \
