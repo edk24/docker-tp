@@ -17,8 +17,8 @@ COPY ./nginx /root/nginx-source
 # NGINX || php73
 RUN cd ~/nginx-source && chmod +x ./install.sh && sh ./install.sh && rm -rf ~/nginx-source
 RUN cd ~/php-source && chmod +x ./install.sh && ./install.sh && rm -rf ~/php-source
-RUN yum install -y certbot && python3-certbot-nginx
+RUN yum install -y epel-release && yum install -y certbot python3-certbot-nginx
 RUN yum clean all
-
+RUN echo 'export PATH=$PATH:/usr/local/php73/bin/:/usr/local/php73/sbin/:/usr/local/nginx/sbin/' > /etc/profile.d/dockertp.sh && source /etc/profile.d/dockertp.sh
 VOLUME [ "/data" ]
 EXPOSE 80 443
